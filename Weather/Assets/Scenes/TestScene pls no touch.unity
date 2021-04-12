@@ -269,8 +269,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101611794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.66, y: -0.16, z: 1.65}
-  m_LocalScale: {x: 9.810339, y: 0.3494112, z: 5.294826}
+  m_LocalPosition: {x: -22.9, y: -0.16, z: 1.65}
+  m_LocalScale: {x: 5.968421, y: 0.3494112, z: 5.294826}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -1283,6 +1283,8 @@ MonoBehaviour:
   - {fileID: 1566363643}
   - {fileID: 2037800545}
   - {fileID: 1074674906}
+  ice: {fileID: 2100000, guid: b3c55801c2136614a900acd1571b407c, type: 2}
+  runnyWater: {fileID: 2100000, guid: c00b119771c5b4a4392c634343c8c21d, type: 2}
 --- !u!1 &1508254555
 GameObject:
   m_ObjectHideFlags: 0
