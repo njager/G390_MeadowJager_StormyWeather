@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RuneRain
+  - RuneDry
+  - RuneSnow
+  - River
+  - Bridge
+  - Seeds
+  - Soil
+  - Lever
+  - Plant
+  - Generator
+  - Plug
+  - BridgeUp
   layers:
   - Default
   - TransparentFX
