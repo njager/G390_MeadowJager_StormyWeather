@@ -22,11 +22,14 @@ public class Game : MonoBehaviour
     bool bridgeUp;
 
     //public variables
-    //[SerializeField] Camera playerCam;
-    [SerializeField] Collider riverCollider;
+    [SerializeField] GameObject iceRiver;
+    [SerializeField] GameObject wetRiver;
     [SerializeField] GameObject bridge;
     [SerializeField] GameObject plank;
     [SerializeField] GameObject plant;
+    [SerializeField] List<GameObject> waterObjects;
+    [SerializeField] Material ice;
+    [SerializeField] Material runnyWater;
     public static CursorLockMode lockState;
 
     // Start is called before the first frame update
@@ -56,29 +59,98 @@ public class Game : MonoBehaviour
                 //rune interactions
                 if (interactedObject.tag == "RuneRain")
                 {
+                    //if changing weather, check previous weather and adjust water level 
+                    if (!isRaining == true)
+                    {
+                        if (isDry == true)
+                        {
+                            foreach (GameObject obj in waterObjects)
+                            {
+                                obj.gameObject.transform.localScale += new Vector3(0, 2, 0);
+                                MeshRenderer meshRenderer;
+                                meshRenderer = obj.GetComponent<MeshRenderer>();
+                                meshRenderer.material = runnyWater;
+                            }
+                            Debug.Log("Water goes higher");
+                        }
+                        else if (isSnowing == true)
+                        {
+                            foreach (GameObject obj in waterObjects)
+                            {
+                                obj.gameObject.transform.localScale += new Vector3(0, 2, 0);
+                                MeshRenderer meshRenderer;
+                                meshRenderer = obj.GetComponent<MeshRenderer>();
+                                meshRenderer.material = runnyWater;
+                            }
+                            Debug.Log("Water goes higher");
+                        }
+                    }
                     isRaining = true;
                     isDry = false;
                     isSnowing = false;
                     plank.gameObject.SetActive(true);
-                    riverCollider.gameObject.SetActive(false);
+                    wetRiver.gameObject.SetActive(true);
+                    iceRiver.gameObject.SetActive(false);
                     Debug.Log("It's raining!");
                 }
                 else if (interactedObject.tag == "RuneDry")
                 {
+                    //if changing weather, check previous weather and adjust water level 
+                    if (!isDry == true)
+                    {
+                        if (isRaining == true)
+                        {
+                            foreach (GameObject obj in waterObjects)
+                            {
+                                //set size of water objects
+                                obj.gameObject.transform.localScale += new Vector3(0, -2, 0);
+                                //set material of water objects
+                                MeshRenderer meshRenderer;
+                                meshRenderer = obj.GetComponent<MeshRenderer>();
+                                meshRenderer.material = runnyWater;
+                            }
+                            Debug.Log("Water goes lower");
+                        }
+                        else if (isSnowing == true)
+                        {
+                            Debug.Log("Water does not change size");
+                        }
+                    }
                     isRaining = false;
                     isDry = true;
                     isSnowing = false;
                     plank.gameObject.SetActive(false);
-                    riverCollider.gameObject.SetActive(false);
+                    wetRiver.gameObject.SetActive(true);
+                    iceRiver.gameObject.SetActive(false);
                     Debug.Log("It's dry!");
                 }
                 else if (interactedObject.tag == "RuneSnow")
                 {
+                    //if changing weather, check previous weather and adjust water level 
+                    if (!isSnowing == true)
+                    {
+                        if(isRaining == true)
+                        {
+                            foreach (GameObject obj in waterObjects)
+                            {
+                                obj.gameObject.transform.localScale += new Vector3(0, -2, 0);
+                                MeshRenderer meshRenderer;
+                                meshRenderer = obj.GetComponent<MeshRenderer>();
+                                meshRenderer.material = ice;
+                            }
+                            Debug.Log("Water goes lower");
+                        }
+                        else if(isDry == true)
+                        {
+                            Debug.Log("Water does not change size");
+                        }
+                    }
                     isRaining = false;
                     isDry = false;
                     isSnowing = true;
                     plank.gameObject.SetActive(false);
-                    riverCollider.gameObject.SetActive(true);
+                    wetRiver.gameObject.SetActive(false);
+                    iceRiver.gameObject.SetActive(true);
                     Debug.Log("It's snowing!");
                 }
                 else
