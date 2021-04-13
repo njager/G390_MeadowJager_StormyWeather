@@ -171,6 +171,10 @@ public float SnowMelt = 0.0f;
 	bool isAnimating;
 	Animator m_Animator;
 
+	public Material referencedMaterial;
+	public Material defaultMaterial;
+	public Terrain referencedTerrain;
+
 
 
 	void OnEnable () {
@@ -235,25 +239,29 @@ public float SnowMelt = 0.0f;
 	
 	void Update () {
 
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetKeyDown(KeyCode.RightAlt))
         {
 			
 				Temperature = 8.0f;
 				isSnowing = false;
-            
+			referencedTerrain.materialTemplate = defaultMaterial;
+
 		}
 
 		if(Input.GetKeyDown(KeyCode.RightShift))
         {
 			Temperature = -8.0f;
 			isSnowing = true;
+			referencedTerrain.materialTemplate = defaultMaterial;
 
-        }
+		}
 
-		if(Input.GetKeyDown(KeyCode.LeftShift))
+		if (Input.GetKeyDown(KeyCode.Backspace))
         {
-			Temperature = -0.3f;
-        }
+			referencedTerrain.materialTemplate = referencedMaterial;
+		}
+
+		
 
 		if(isAnimating == true)
         {

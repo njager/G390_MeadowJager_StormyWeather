@@ -30,9 +30,9 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 1
   antialiasing:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      method: 1
+      method: 0
       fxaaSettings:
         preset: 2
       taaSettings:
@@ -41,10 +41,10 @@ MonoBehaviour:
         stationaryBlending: 0.7
         motionBlending: 0.4
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      intensity: 3.23
-      radius: 0.41
+      intensity: 4
+      radius: 0.59
       sampleCount: 10
       downsampling: 1
       forceForwardCompatibility: 0
@@ -101,10 +101,10 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.4
-        threshold: 0.5
-        softKnee: 0.823
-        radius: 4.24
+        intensity: 0.38
+        threshold: 0.52
+        softKnee: 0.088
+        radius: 1.15
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 2800000, guid: 4a763d070d054ecbab06db5b8f28509c, type: 3}
@@ -122,22 +122,22 @@ MonoBehaviour:
         neutralWhiteClip: 10
       basic:
         postExposure: -0.24
-        temperature: 13
-        tint: 0
-        hueShift: 0
+        temperature: 19.6
+        tint: 5.8
+        hueShift: -1
         saturation: 1.46
         contrast: 1.25
       channelMixer:
-        red: {x: 1, y: 0, z: 0}
+        red: {x: 1, y: 0.17, z: -0.15}
         green: {x: 0, y: 1, z: 0}
         blue: {x: 0, y: 0, z: 1}
         currentEditingChannel: 0
       colorWheels:
         mode: 1
         log:
-          slope: {r: 1, g: 1, b: 1, a: 0}
-          power: {r: 1, g: 1, b: 1, a: 0}
-          offset: {r: 1, g: 1, b: 1, a: 0}
+          slope: {r: 1, g: 0.96565145, b: 0.97860056, a: 0}
+          power: {r: 0.97083735, g: 1, b: 0.78657377, a: 0}
+          offset: {r: 1, g: 0.96341085, b: 0.95064, a: 0}
         linear:
           lift: {r: 0, g: 0, b: 0, a: 0}
           gamma: {r: 0, g: 0, b: 0, a: 0}
@@ -311,10 +311,10 @@ MonoBehaviour:
       spectralTexture: {fileID: 0}
       intensity: 0.1
   grain:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       colored: 1
-      intensity: 0.5
+      intensity: 0.079
       size: 1
       luminanceContribution: 0.8
   vignette:
@@ -323,7 +323,7 @@ MonoBehaviour:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.45
+      intensity: 0.491
       smoothness: 0.2
       roundness: 0.907
       mask: {fileID: 0}
