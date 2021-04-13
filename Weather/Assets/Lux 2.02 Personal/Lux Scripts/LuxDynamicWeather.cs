@@ -250,6 +250,11 @@ public float SnowMelt = 0.0f;
 
         }
 
+		if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+			Temperature = -0.3f;
+        }
+
 		if(isAnimating == true)
         {
 			if(isSnowing == true)
